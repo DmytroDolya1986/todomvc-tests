@@ -1,10 +1,7 @@
 from selene.support.conditions import have
 from selene.support.shared import browser
-from selene.support.jquery_style_selectors import s
-from selene.support.shared.jquery_style import ss
 
-
-def test_query_complete():
+def test_complete_tasks():
     browser.open('http://todomvc.com/examples/emberjs/')
 
     browser.element('#new-todo').type('a').press_enter()
@@ -16,8 +13,3 @@ def test_query_complete():
     browser.all('#todo-list>li').element_by(have.exact_text('b')).element('.toggle').click()
     browser.all('#todo-list>li').filtered_by(have.css_class('completed')).should(have.exact_texts('b'))
     browser.all('#todo-list>li').filtered_by(have.no.css_class('completed')).should(have.exact_texts('a', 'c'))
-
-
-
-
-
