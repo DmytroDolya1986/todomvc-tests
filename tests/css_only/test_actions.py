@@ -9,7 +9,6 @@ def test_complete_tasks():
     s('#new-todo').type('a').press_enter()
     s('#new-todo').type('b').press_enter()
     s('#new-todo').type('c').press_enter()
-
     ss('#todo-list>li').should(have.exact_texts('a', 'b', 'c'))
 
     s('#todo-list>li:nth-of-type(2) .toggle').click()
